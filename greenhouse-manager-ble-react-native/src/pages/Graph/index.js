@@ -31,7 +31,8 @@ export default function Graph() {
 
   useEffect(() => {
     const loadData = async () => {
-      // await db.store(23, 55, 72, 1, new Date().toLocaleString());
+      // await db.deleteDataOfTable();
+      // await db.initDB();
 
       const response = await db.index();
       var dados = [];
