@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import {LineChart} from 'react-native-chart-kit';
 
-import {ScrollView} from 'react-native';
+import {ScrollView, Text} from 'react-native';
 
 const chartConfig = {
   backgroundGradientFrom: 'white',
@@ -35,25 +35,22 @@ export default function Graph() {
       // await db.initDB();
 
       const response = await db.index();
-      var dados = [];
-      for (let i = 0; i < response.rows.length; ++i) {
-        dados.push(response.rows.item(i));
-      }
-
       var x = [];
       var y1 = [];
       var y2 = [];
       var y3 = [];
       var y4 = [];
 
-      dados.forEach(item => {
-        const time = new Date(item.date).toLocaleTimeString();
+      for (let i = 0; i < response.rows.length; ++i) {
+        const item = response.rows.item(i);
+        const time = new Date(item.date).getHours();
         x.push(time);
         y1.push(item.temperatura);
         y2.push(item.umidade_solo);
         y3.push(item.umidade_ar);
         y4.push(item.altura);
-      });
+        console.tron.log(item);
+      }
 
       setData({
         labels: x,
@@ -84,14 +81,18 @@ export default function Graph() {
     <Container>
       <Title>Day 1</Title>
       <ScrollView horizontal={true}>
-        <LineChart
-          data={data}
-          verticalLabelRotation={45}
-          width={700}
-          height={530}
-          chartConfig={chartConfig}
-          bezier
-        />
+        {data.labels.length > 0 ? (
+          <LineChart
+            data={data}
+            verticalLabelRotation={45}
+            width={700}
+            height={530}
+            chartConfig={chartConfig}
+            bezier
+          />
+        ) : (
+          <Text>Não existem dados</Text>
+        )}
       </ScrollView>
     </Container>
   );

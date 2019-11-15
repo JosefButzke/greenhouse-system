@@ -22,13 +22,13 @@ export default class Database {
     });
   }
 
-  store(temperatura, umidade_solo, umidade_ar, altura, date) {
+  store(temperatura, umidade_ar, umidade_solo, altura, date) {
     return new Promise(resolve => {
       this.initDB().then(db => {
         db.transaction(tx => {
           tx.executeSql(
-            'INSERT INTO variaveis(temperatura, umidade_solo, umidade_ar, altura, date) VALUES(?,?,?,?,?)',
-            [temperatura, umidade_solo, umidade_ar, altura, date],
+            'INSERT INTO variaveis(temperatura, umidade_ar, umidade_solo, altura, date) VALUES(?,?,?,?,?)',
+            [temperatura, umidade_ar, umidade_solo, altura, date],
             function(tx, results) {
               resolve(results);
             },
