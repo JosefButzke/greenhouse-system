@@ -3,7 +3,7 @@ A project to manager greenhouse with comunication between Arduino and React-nati
 
 <h1>App Mobile</h1>
 <div>
-  <img src="https://github.com/JosefButzke/greenhouse-system/blob/master/greenhouse-manager-ble-react-native/IMAGES/6.gif" width="250" alt=""/>
+  <img src="https://github.com/JosefButzke/greenhouse-system/blob/master/greenhouse-manager-ble-react-native/IMAGES/8.gif" width="250" alt=""/>
 </div>
 
 <h1>Screen Connection</h1>
