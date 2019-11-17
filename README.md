@@ -8,7 +8,7 @@ A project to manager greenhouse with comunication between Arduino and React-nati
 
 <h1>Screen Connection</h1>
 <div>
-  <img src="https://github.com/JosefButzke/greenhouse-system/blob/master/greenhouse-manager-ble-react-native/IMAGES/8.jpg" width="250" alt=""/>
+  <img src="https://github.com/JosefButzke/greenhouse-system/blob/master/greenhouse-manager-ble-react-native/IMAGES/1.jpg" width="250" alt=""/>
 </div>
 
 <h1>Screen Connection Device Found</h1>
@@ -33,10 +33,10 @@ A project to manager greenhouse with comunication between Arduino and React-nati
 
 <h1>Screen Graphs</h1>
 <div>
-  <img src="https://github.com/JosefButzke/greenhouse-system/blob/master/greenhouse-manager-ble-react-native/IMAGES/6.gif" width="250" alt=""/>
+  <img src="https://github.com/JosefButzke/greenhouse-system/blob/master/greenhouse-manager-ble-react-native/IMAGES/6.jpg" width="250" alt=""/>
 </div>
 
 <h1>Screen Graphs Scrolling Right</h1>
 <div>
-  <img src="https://github.com/JosefButzke/greenhouse-system/blob/master/greenhouse-manager-ble-react-native/IMAGES/7.gif" width="250" alt=""/>
+  <img src="https://github.com/JosefButzke/greenhouse-system/blob/master/greenhouse-manager-ble-react-native/IMAGES/7.jpg" width="250" alt=""/>
 </div>
