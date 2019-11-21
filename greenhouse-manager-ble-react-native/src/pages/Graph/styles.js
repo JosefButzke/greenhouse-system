@@ -2,8 +2,14 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   display: flex;
+  flex: 1;
   align-items: center;
   background-color: #1da334;
+`;
+
+export const ContainerLoading = styled.View`
+  flex: 1;
+  justify-content: center;
 `;
 
 export const Title = styled.Text`
@@ -31,4 +37,10 @@ export const LegendItem = styled.View`
 export const TitleLegend = styled.Text`
   padding: 10px;
   font-size: 10px;
+`;
+
+export const TitleNo = styled.Text`
+  padding: 10px;
+  font-size: 18px;
+  color: #eee;
 `;

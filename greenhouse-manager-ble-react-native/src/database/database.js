@@ -14,21 +14,31 @@ export default class Database {
     return new Promise(resolve => {
       this.initDB().then(db => {
         db.transaction(tx => {
-          tx.executeSql('SELECT * FROM variaveis', [], function(tx, results) {
-            resolve(results);
-          });
+          tx.executeSql(
+            'SELECT * FROM variaveis ORDER by date DESC LIMIT 50',
+            [],
+            function(tx, results) {
+              resolve(results);
+            },
+          );
         }).then(results => this.closeDatabase(db));
       });
     });
   }
 
-  store(temperatura, umidade_ar, umidade_solo, altura, date) {
+  store(temperatura, umidade_ar, umidade_solo, altura) {
     return new Promise(resolve => {
       this.initDB().then(db => {
         db.transaction(tx => {
           tx.executeSql(
             'INSERT INTO variaveis(temperatura, umidade_ar, umidade_solo, altura, date) VALUES(?,?,?,?,?)',
-            [temperatura, umidade_ar, umidade_solo, altura, date],
+            [
+              temperatura,
+              umidade_ar,
+              umidade_solo,
+              altura,
+              new Date().toISOString(),
+            ],
             function(tx, results) {
               resolve(results);
             },
@@ -42,7 +52,7 @@ export default class Database {
     return new Promise(resolve => {
       this.initDB().then(db => {
         db.transaction(tx => {
-          tx.executeSql('DELETE FROM variaveis;', [], function(tx, results) {
+          tx.executeSql('DELETE FROM variaveis', [], function(tx, results) {
             resolve(results);
           });
         }).then(results => this.closeDatabase(db));

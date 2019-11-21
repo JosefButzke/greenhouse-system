@@ -32,12 +32,11 @@ export default function RealTime({navigation}) {
       const characteristic = navigation.getParam('characteristic');
 
       const res = await characteristic.monitor(async (error, listen) => {
-        console.tron.log(base64.decode(listen.value));
         const [temp, umAr, umSolo, altu] = base64
           .decode(listen.value)
           .trim()
           .split(',');
-        await db.store(temp, umAr, umSolo, altu, new Date().toLocaleString());
+        await db.store(temp, umAr, umSolo, altu);
         setTemperatura(temp);
         setUmidadeAr(umAr);
         setUmidadeSolo(umSolo);
