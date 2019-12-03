@@ -44,3 +44,8 @@ export const TitleNo = styled.Text`
   font-size: 18px;
   color: #eee;
 `;
+
+export const Button = styled.Button`
+  width: 10px;
+  height: 20px;
+`;

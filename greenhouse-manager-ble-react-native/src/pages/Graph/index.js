@@ -16,6 +16,7 @@ import {
   LegendItem,
   TitleLegend,
   TitleNo,
+  Button,
 } from './styles';
 
 import Database from '../../database/database';
@@ -37,10 +38,6 @@ export default function Graph() {
 
   useEffect(() => {
     const loadData = async () => {
-      // await db.initDB();
-      // await db.store(28, 29, 30, 31);
-      // await db.deleteDataOfTable();
-
       const response = await db.index();
       var x = [];
       var y1 = [];
@@ -50,13 +47,17 @@ export default function Graph() {
 
       for (let i = 0; i < response.rows.length; ++i) {
         const item = response.rows.item(i);
-        console.tron.log(item.date);
-        x.push(item.date.split('.')[0]);
+        x.push(
+          `${new Date(item.date).toLocaleDateString()} - ${new Date(
+            item.date,
+          ).toLocaleTimeString()}`,
+        );
         y1.push(item.temperatura);
         y2.push(item.umidade_solo);
         y3.push(item.umidade_ar);
         y4.push(Math.abs(16 - item.altura));
       }
+
       setWidthGraph(response.rows.length * 50);
       setLoading(false);
       response.rows.length &&
@@ -85,6 +86,10 @@ export default function Graph() {
     loadData();
   }, []);
 
+  const handleDelete = async () => {
+    await db.deleteDataOfTable();
+  };
+
   return (
     <Container>
       {!loading ? (
@@ -106,7 +111,7 @@ export default function Graph() {
                 fromZero={true}
                 data={data}
                 verticalLabelRotation={25}
-                height={screenWidth - 160}
+                height={screenWidth - 210}
                 width={widthGraph}
                 chartConfig={ChartConfig}
                 bezier
@@ -126,6 +131,7 @@ export default function Graph() {
           <ActivityIndicator size={50} color="#00ff00" />
         </ContainerLoading>
       )}
+      <Button title="Delete Table" color="red" onPress={() => handleDelete()} />
     </Container>
   );
 }

@@ -6,11 +6,7 @@ import {
   TitleVariable,
   ValueRealTime,
   Line,
-  UploadButton,
-  UploadButtonText,
 } from './styles';
-
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import base64 from 'react-native-base64';
 
@@ -81,3 +77,7 @@ export default function RealTime({navigation}) {
     </Container>
   );
 }
+
+RealTime.navigationOptions = () => ({
+  title: 'Real Time',
+});
