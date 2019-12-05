@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 
 import {BleManager} from 'react-native-ble-plx';
 
+import Database from '../../database/database';
+
+const db = new Database();
+
 import {
   Container,
   Ativador,
@@ -83,6 +87,10 @@ export default class Conexao extends Component {
     });
   }
 
+  handleDelete = async () => {
+    await db.deleteDataOfTable();
+  };
+
   handleNavigate = async device => {
     const {navigation} = this.props;
 
@@ -128,6 +136,9 @@ export default class Conexao extends Component {
         )}
         <DeviceButtonSync onPress={() => this.handleNavigateBD()}>
           <IconSync name="save" size={20} />
+        </DeviceButtonSync>
+        <DeviceButtonSync onPress={() => this.handleDelete()}>
+          <IconSync name="delete" size={20} />
         </DeviceButtonSync>
       </Container>
     );

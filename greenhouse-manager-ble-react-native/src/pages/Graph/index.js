@@ -16,7 +16,6 @@ import {
   LegendItem,
   TitleLegend,
   TitleNo,
-  Button,
 } from './styles';
 
 import Database from '../../database/database';
@@ -86,10 +85,6 @@ export default function Graph() {
     loadData();
   }, []);
 
-  const handleDelete = async () => {
-    await db.deleteDataOfTable();
-  };
-
   return (
     <Container>
       {!loading ? (
@@ -131,7 +126,6 @@ export default function Graph() {
           <ActivityIndicator size={50} color="#00ff00" />
         </ContainerLoading>
       )}
-      <Button title="Delete Table" color="red" onPress={() => handleDelete()} />
     </Container>
   );
 }

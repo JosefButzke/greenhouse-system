@@ -78,13 +78,15 @@ function Home({navigation}) {
             <Picker
               selectedValue={cultivo}
               onValueChange={val => setCultivo(val)}>
+              <Picker.Item label="Custom" value="505050" />
               <Picker.Item label="Alcaçuz" value="166585" />
+              <Picker.Item label="Alface" value="168070" />
               <Picker.Item label="Alfazema" value="206570" />
               <Picker.Item label="Babosa" value="266060" />
               <Picker.Item label="Boldo-do-chile" value="246080" />
-              <Picker.Item label="Calêndula" value="246080" />
+              <Picker.Item label="Calêndula" value="106055" />
               <Picker.Item label="Hortelã" value="187045" />
-              <Picker.Item label="Malva" value="246080" />
+              <Picker.Item label="Malva" value="326050" />
             </Picker>
           </CultivoRow>
           <CultivoRow>
