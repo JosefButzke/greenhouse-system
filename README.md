@@ -1,6 +1,8 @@
 # greenhouse-system
 A project to manager greenhouse with comunication between Arduino and React-native using Green House System with hm-10
 
+<a>https://www.linkedin.com/pulse/sistema-de-automo%C3%A7%C3%A3o-estufa-com-react-native-josef-stein-butzke/</a>
+
 <h1>App Mobile</h1>
 <div>
   <img src="https://github.com/JosefButzke/greenhouse-system/blob/master/greenhouse-manager-ble-react-native/IMAGES/8.gif" width="250" alt=""/>
